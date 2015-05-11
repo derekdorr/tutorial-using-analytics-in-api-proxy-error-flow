@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<StatisticsCollector async="false" continueOnError="false" enabled="true" name="__collect-statistics-request__">
+    <DisplayName>Collect Statistics Request</DisplayName>
+    <Statistics>
+        <Statistic name="FaultName" ref="fault.name" type="String"></Statistic>
+      	<Statistic name="ErrorStatusMessage" ref="debug.error.status.message" type="String"></Statistic>
+      	<Statistic name="ErrorContent" ref="debug.error.content" type="String"></Statistic>
+      	<Statistic name="ErrorStatusCode" ref="error.status.code" type="String"></Statistic>
+    </Statistics>
+</StatisticsCollector>

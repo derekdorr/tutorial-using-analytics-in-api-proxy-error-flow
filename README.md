@@ -27,6 +27,7 @@ This might be more helpful.  But, in the end, fixing the issue will require reac
 Don't be reactive, be proactive!
 
 ## Fault and Error Globals
+When entering the error flow, a number of global context variables are set at the proxy level.  These are somewhat accessible to the savvy developer, though interaction may be quirky.
 
 ## Extracting Error Properties with Javascript
 

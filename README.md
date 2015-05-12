@@ -61,6 +61,10 @@ If read as a string, it looks something like:
             '500:ScriptExecutionFailed'
 
 ## Extracting Error Properties with Javascript
+As of this writing, properties of the error global are accessible via Javascript but are not able to be referenced in either ExtractVariables or StatisticsCollector policies with the exception of `error.status.code`. However, they can be referenced and set to a context in a JavaScript policy.  This can be done by treating `error` as an object and using `context.setVariable()` like so:
+
+            context.setVariable("debug.error.content",error.content);
+            context.setVariable("debug.error.status.message",error.message);
 
 ## Collecting Statistics on Errors
 

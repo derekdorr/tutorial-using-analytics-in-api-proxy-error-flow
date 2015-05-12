@@ -113,6 +113,6 @@ Thus, if we use the proxy in this repo, we can set the following properties as D
 ## Additional Information
 We use the following Apigee policies to accomplish this:
 
-    + [StatisticsCollector](http://apigee.com/docs/api-services/reference/statistics-collector-policy)
-    + [Javascript](http://apigee.com/docs/api-services/reference/javascript-policy)
-    + [ProxyEndpoint](http://apigee.com/docs/api-services/reference/api-proxy-configuration-reference)
++ [StatisticsCollector](http://apigee.com/docs/api-services/reference/statistics-collector-policy)
++ [Javascript](http://apigee.com/docs/api-services/reference/javascript-policy)
++ [ProxyEndpoint](http://apigee.com/docs/api-services/reference/api-proxy-configuration-reference)

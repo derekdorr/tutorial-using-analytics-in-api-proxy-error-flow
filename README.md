@@ -29,6 +29,37 @@ Don't be reactive, be proactive!
 ## Fault and Error Globals
 When entering the error flow, a number of global context variables are set at the proxy level.  These are somewhat accessible to the savvy developer, though interaction may be quirky.
 
+### The `fault` global
+Fault cannot be accessed directly in message flow, but when in a fault flow, the following properties can be accessed and recorded.
+
+            # Return the error code/message
+            fault.name
+            
+            # Return the fault type or an empty string
+            fault.type
+            
+            # Return the fault category or an empty string
+            fault.category
+
+
+### The `error` global
+The error context is both a string and an object.  If stringified using `JSON.stringify`, we see an object that looks like the following:
+
+            {
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "content": "{\"fault\":{\"faultstring\":\"Execution of GetVariables failed with error: Exception thrown from JavaScript : ReferenceError: \\\"good\\\" is not defined. (GetVariables_js#5)\",\"detail\":{\"errorcode\":\"steps.javascript.ScriptExecutionFailed\"}}}",
+                "status": {
+                    "message": "Internal Server Error",
+                    "code": "500"
+                }
+            }
+            
+If read as a string, it looks something like:
+
+            '500:ScriptExecutionFailed'
+
 ## Extracting Error Properties with Javascript
 
 ## Collecting Statistics on Errors

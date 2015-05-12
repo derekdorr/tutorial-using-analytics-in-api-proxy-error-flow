@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?> 
+<APIProxy revision="1" name="derek-musicapi-analytics-api">
+    <ConfigurationVersion majorVersion="4" minorVersion="0" /> 
+    <CreatedAt>1429112614303</CreatedAt> 
+    <CreatedBy>example@llbean.com</CreatedBy> 
+    <Description /> 
+    <DisplayName>break-this-proxy</DisplayName> 
+    <LastModifiedAt>1431107956689</LastModifiedAt> 
+    <LastModifiedBy>example@llbean.com</LastModifiedBy> 
+    <Policies>
+        <Policy>ExtractError</Policy> 
+        <Policy>GetVariables</Policy> 
+        <Policy>__collect-statistics-request__</Policy> 
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint> 
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://ExtractError.js</Resource> 
+        <Resource>jsc://GetVariables.js</Resource> 
+    </Resources>
+    <TargetServers /> 
+    <validate>false</validate> 
+</APIProxy>

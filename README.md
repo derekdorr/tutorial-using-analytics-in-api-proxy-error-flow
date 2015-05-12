@@ -67,5 +67,37 @@ As of this writing, properties of the error global are accessible via Javascript
             context.setVariable("debug.error.status.message",error.message);
 
 ## Collecting Statistics on Errors
+To collect statistics on the errors, we need to perform three actions.
+
++ First, create a JavaScript policy and file fixating the variables you would like to collect to the context.  In this repo, examples can be found at `/example-proxy/apiproxy/policies/ExtractError.xml` and `/example-proxy/apiproxy/resources/jsc/ExtractError.js`.  This contains the same code as in the section above:
+
+            context.setVariable("debug.error.content",error.content);
+            context.setVariable("debug.error.status.message",error.message);
+
++ Second, create a StatisticsCollector policy like so:
+
+            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+            <StatisticsCollector async="false" continueOnError="false" enabled="true" name="__collect-statistics-request__">
+                <DisplayName>Collect Statistics Request</DisplayName>
+                <Statistics>
+                    <Statistic name="FaultName" ref="fault.name" type="String"></Statistic>
+                  	<Statistic name="ErrorStatusMessage" ref="debug.error.status.message" type="String"></Statistic>
+                  	<Statistic name="ErrorContent" ref="debug.error.content" type="String"></Statistic>
+                  	<Statistic name="ErrorStatusCode" ref="error.status.code" type="String"></Statistic>
+                </Statistics>
+            </StatisticsCollector>
+
++ Finally, reference those policies in your proxy or target Fault flows:
+
+            <FaultRules>
+                <FaultRule name="CustomFaultHandling">
+                    <Step>
+                        <Name>ExtractError</Name>
+                    </Step>
+                    <Step>
+                        <Name>__collect-statistics-request__</Name>
+                    </Step>
+                </FaultRule>
+            </FaultRules>
 
 ## Creating Reports with Error Statistics

@@ -101,3 +101,12 @@ To collect statistics on the errors, we need to perform three actions.
             </FaultRules>
 
 ## Creating Reports with Error Statistics
+These statistics can now be referenced in the `Analytics > Reports` dashboard when creating custom reports.  Depending on the names specified in the StatisticsCollector, each variable can be set as a dimension in the report and be used to display information.
+
+Thus, if we use the proxy in this repo, we can set the following properties as Dimensions in custom reports (based on the names assigned in the above StatisticsCollector):
+
+            faultname
+            errorstatusmessage
+            errorcontent
+            errorstatuscode
+
